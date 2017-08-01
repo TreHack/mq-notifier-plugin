@@ -45,6 +45,10 @@ public final class Util {
     public static final String KEY_PROJECT_NAME = "build_job_name";
     /**BuildNr Key. */
     public static final String KEY_BUILD_NR = "build_number";
+    /**Build Duration Key. */
+    public static final String KEY_BUILD_DURATION = "build_duration";
+    /**Timestamp Key. */
+    public static final String KEY_Timestamp = "timestamp";
     /**Master FQDN Key. */
     public static final String KEY_MASTER_FQDN = "jenkins_master_fqdn";
     /**State Key. */
