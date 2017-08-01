@@ -85,6 +85,14 @@ public class RunListenerImpl extends RunListener<Run> {
             status = res.toString();
         }
         json.put(Util.KEY_STATUS, status);
+        json.put("duration", r.getDurationString());
+        json.put("isbuilding", r.isBuilding());
+        json.put("real_duration", r.getDuration());
+        r.reload();
+        json.put("duration_data", r.getDurationString());
+        json.put("isbuilding_data", r.isBuilding());
+        json.put("real_duration_data", r.getDuration());
+        json.put("date", System.currentTimeMillis() - r.getTimeInMillis());
         for (MQDataProvider mqDataProvider : MQDataProvider.all()) {
             mqDataProvider.provideCompletedRunData(r, json);
         }
