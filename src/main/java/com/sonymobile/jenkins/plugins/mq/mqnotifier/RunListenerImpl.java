@@ -76,7 +76,7 @@ public class RunListenerImpl extends RunListener<Run> {
         json.put(Util.KEY_STATE, Util.VALUE_COMPLETED);
         json.put(Util.KEY_URL, Util.getJobUrl(r));
         json.put(Util.KEY_PROJECT_NAME, r.getParent().getFullName());
-        json.put(Util.KEY_BUILD_DURATION, r.getDuration());
+        json.put(Util.KEY_BUILD_DURATION, System.currentTimeMillis() - r.getTimeInMillis());
         json.put(Util.KEY_BUILD_NR, r.getNumber());
         json.put(Util.KEY_MASTER_FQDN, Util.getHostName());
         String status = "";
@@ -85,14 +85,6 @@ public class RunListenerImpl extends RunListener<Run> {
             status = res.toString();
         }
         json.put(Util.KEY_STATUS, status);
-        json.put("duration", r.getDurationString());
-        json.put("isbuilding", r.isBuilding());
-        json.put("real_duration", r.getDuration());
-        json.put("duration_data", r.getDurationString());
-        json.put("isbuilding_data", r.isBuilding());
-        json.put("real_duration_data", r.getDuration());
-        json.put("date", System.currentTimeMillis() - r.getTimeInMillis());
-        json.put("now", System.currentTimeMillis());
         for (MQDataProvider mqDataProvider : MQDataProvider.all()) {
             mqDataProvider.provideCompletedRunData(r, json);
         }
