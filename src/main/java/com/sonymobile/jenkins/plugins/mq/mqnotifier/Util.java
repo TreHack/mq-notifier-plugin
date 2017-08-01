@@ -48,7 +48,7 @@ public final class Util {
     /**Build Duration Key. */
     public static final String KEY_BUILD_DURATION = "build_duration";
     /**Timestamp Key. */
-    public static final String KEY_Timestamp = "timestamp";
+    public static final String KEY_TIMESTAMP = "timestamp";
     /**Master FQDN Key. */
     public static final String KEY_MASTER_FQDN = "jenkins_master_fqdn";
     /**State Key. */
