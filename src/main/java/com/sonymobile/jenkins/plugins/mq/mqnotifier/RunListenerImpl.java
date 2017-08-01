@@ -105,6 +105,9 @@ public class RunListenerImpl extends RunListener<Run> {
         if (res != null) {
             status = res.toString();
         }
+        for (MQDataProvider mqDataProvider : MQDataProvider.all()) {
+            mqDataProvider.provideCompletedRunData(r, json);
+        }
         json.put(Util.KEY_STATUS, status);
         publish(json);
     }
