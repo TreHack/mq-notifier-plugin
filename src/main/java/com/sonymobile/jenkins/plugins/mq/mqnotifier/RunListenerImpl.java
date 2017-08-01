@@ -88,11 +88,11 @@ public class RunListenerImpl extends RunListener<Run> {
         json.put("duration", r.getDurationString());
         json.put("isbuilding", r.isBuilding());
         json.put("real_duration", r.getDuration());
-        r.reload();
         json.put("duration_data", r.getDurationString());
         json.put("isbuilding_data", r.isBuilding());
         json.put("real_duration_data", r.getDuration());
         json.put("date", System.currentTimeMillis() - r.getTimeInMillis());
+        json.put("now", System.currentTimeMillis());
         for (MQDataProvider mqDataProvider : MQDataProvider.all()) {
             mqDataProvider.provideCompletedRunData(r, json);
         }
