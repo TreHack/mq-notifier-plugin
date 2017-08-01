@@ -61,7 +61,7 @@ public class RunListenerImpl extends RunListener<Run> {
         json.put(Util.KEY_URL, Util.getJobUrl(r));
         json.put(Util.KEY_PROJECT_NAME, r.getParent().getFullName());
         json.put(Util.KEY_BUILD_NR, r.getNumber());
-        json.put(Util.KEY_TIMESTAMP, r.getStartTimeInMillis());
+        json.put(Util.KEY_TIMESTAMP, r.getTimeInMillis());
         json.put(Util.KEY_MASTER_FQDN, Util.getHostName());
 
         for (MQDataProvider mqDataProvider : MQDataProvider.all()) {
