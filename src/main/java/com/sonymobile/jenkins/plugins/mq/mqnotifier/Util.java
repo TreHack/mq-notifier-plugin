@@ -77,6 +77,8 @@ public final class Util {
     public static final String VALUE_STARTED = "STARTED";
     /**Completed Value. */
     public static final String VALUE_COMPLETED = "COMPLETED";
+    /**Over Value. */
+    public static final String VALUE_OVER = "OVER";
     /**Deleted Value. */
     public static final String VALUE_DELETED = "DELETED";
     /**Content Type. */
