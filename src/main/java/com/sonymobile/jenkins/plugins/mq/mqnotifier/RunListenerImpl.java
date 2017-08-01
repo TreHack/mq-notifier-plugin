@@ -94,7 +94,7 @@ public class RunListenerImpl extends RunListener<Run> {
     @Override
     public void onFinalized(Run r) {
         JSONObject json = new JSONObject();
-        json.put(Util.KEY_STATE, Util.OVER);
+        json.put(Util.KEY_STATE, Util.VALUE_OVER);
         json.put(Util.KEY_URL, Util.getJobUrl(r));
         json.put(Util.KEY_PROJECT_NAME, r.getParent().getFullName());
         json.put(Util.KEY_BUILD_DURATION, r.getDuration());
