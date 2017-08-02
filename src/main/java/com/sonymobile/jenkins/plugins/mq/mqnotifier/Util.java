@@ -42,7 +42,7 @@ public final class Util {
     /**Url Key. */
     public static final String KEY_URL = "url";
     /**Name Key. */
-    public static final String KEY_PROJECT_NAME = "build_job_name";
+    public static final String KEY_PROJECT_NAME = "job_name";
     /**BuildNr Key. */
     public static final String KEY_BUILD_NR = "build_number";
     /**Build Duration Key. */
