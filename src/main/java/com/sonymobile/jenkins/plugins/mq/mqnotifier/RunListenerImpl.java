@@ -72,22 +72,22 @@ public class RunListenerImpl extends RunListener<Run> {
 
     @Override
     public void onCompleted(Run r, TaskListener listener) {
-        JSONObject json = new JSONObject();
-        json.put(Util.KEY_STATE, Util.VALUE_COMPLETED);
-        json.put(Util.KEY_URL, Util.getJobUrl(r));
-        json.put(Util.KEY_PROJECT_NAME, r.getParent().getFullName());
-        json.put(Util.KEY_BUILD_NR, r.getNumber());
-        json.put(Util.KEY_MASTER_FQDN, Util.getHostName());
-        String status = "";
-        Result res = r.getResult();
-        if (res != null) {
-            status = res.toString();
-        }
-        json.put(Util.KEY_STATUS, status);
-        for (MQDataProvider mqDataProvider : MQDataProvider.all()) {
-            mqDataProvider.provideCompletedRunData(r, json);
-        }
-        publish(json);
+        // JSONObject json = new JSONObject();
+        // json.put(Util.KEY_STATE, Util.VALUE_COMPLETED);
+        // json.put(Util.KEY_URL, Util.getJobUrl(r));
+        // json.put(Util.KEY_PROJECT_NAME, r.getParent().getFullName());
+        // json.put(Util.KEY_BUILD_NR, r.getNumber());
+        // json.put(Util.KEY_MASTER_FQDN, Util.getHostName());
+        // String status = "";
+        // Result res = r.getResult();
+        // if (res != null) {
+        //     status = res.toString();
+        // }
+        // json.put(Util.KEY_STATUS, status);
+        // for (MQDataProvider mqDataProvider : MQDataProvider.all()) {
+        //     mqDataProvider.provideCompletedRunData(r, json);
+        // }
+        // publish(json);
     }
     
     @Override

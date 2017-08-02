@@ -61,31 +61,31 @@ public class QueueListenerImpl extends QueueListener {
 
     @Override
     public void onEnterWaiting(Queue.WaitingItem wi) {
-        JSONObject json = new JSONObject();
-        json.put(Util.KEY_STATE, Util.VALUE_ADDED_TO_QUEUE);
-        populateCommon(json, wi);
-        for (MQDataProvider mqDataProvider : MQDataProvider.all()) {
-            mqDataProvider.provideEnterWaitingQueueData(wi, json);
-        }
-        publish(json);
+        // JSONObject json = new JSONObject();
+        // json.put(Util.KEY_STATE, Util.VALUE_ADDED_TO_QUEUE);
+        // populateCommon(json, wi);
+        // for (MQDataProvider mqDataProvider : MQDataProvider.all()) {
+        //     mqDataProvider.provideEnterWaitingQueueData(wi, json);
+        // }
+        // publish(json);
     }
 
     @Override
     public void onLeft(Queue.LeftItem li) {
-        JSONObject json = new JSONObject();
-        json.put(Util.KEY_STATE, Util.VALUE_REMOVED_FROM_QUEUE);
-        if (li.isCancelled()) {
-            json.put(Util.KEY_DEQUEUE_REASON, Util.VALUE_CANCELLED);
-        } else {
-            json.put(Util.KEY_DEQUEUE_REASON, Util.VALUE_BUILDING);
-            json.put(Util.KEY_DEQUEUE_TIME_SPENT, System.currentTimeMillis() - li.getInQueueSince());
-        }
-        populateCommon(json, li);
+        // JSONObject json = new JSONObject();
+        // json.put(Util.KEY_STATE, Util.VALUE_REMOVED_FROM_QUEUE);
+        // if (li.isCancelled()) {
+        //     json.put(Util.KEY_DEQUEUE_REASON, Util.VALUE_CANCELLED);
+        // } else {
+        //     json.put(Util.KEY_DEQUEUE_REASON, Util.VALUE_BUILDING);
+        //     json.put(Util.KEY_DEQUEUE_TIME_SPENT, System.currentTimeMillis() - li.getInQueueSince());
+        // }
+        // populateCommon(json, li);
 
-        for (MQDataProvider mqDataProvider : MQDataProvider.all()) {
-            mqDataProvider.provideLeftQueueData(li, json);
-        }
-        publish(json);
+        // for (MQDataProvider mqDataProvider : MQDataProvider.all()) {
+        //     mqDataProvider.provideLeftQueueData(li, json);
+        // }
+        // publish(json);
     }
 
     /**
